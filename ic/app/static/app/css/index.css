@@ -1,0 +1,184 @@
+html {
+    scroll-behavior: smooth;
+}
+body
+{
+    background: #531a19;
+} 
+.navbar, .nav-link{
+    background-color: black;
+    color: #ffffff;
+}
+#parallax{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#parallax::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width:100%;
+    height: 200px;
+    background: linear-gradient(to top, rgb(87, 28, 28), transparent);
+    z-index: 10000;
+}
+#parallax img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+}
+#text{
+    position: absolute;
+    color: white;
+    font-size: 15vh;
+    font-weight: 800;
+}
+#explore{
+    margin-top: 100px;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 30px;
+    border-radius: 40px;
+    background: rgb(36, 25, 24);
+    color: #ffffff;
+    font-size: 1.5em;
+    z-index: 9;
+    transform: translateY(100px);
+}
+#para{
+    font-size: 18px;
+}
+#sec{
+    font-family: "Poppins";
+    position: relative;
+    padding: 50px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto ;
+    color: white;
+    
+     
+}
+.carousel{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.carousel-caption{
+    left: 150px;
+    color: black;
+    font-size: medium;
+}
+
+.card-img-top{
+    height: 60%;
+    width: 60%;
+}
+
+/* Specials section */
+.section-title {
+    text-align: center;
+    color: white;
+  }
+  #projects .projects {
+    flex-direction: column;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px 0;
+  }
+  #projects .projects-header h1 {
+    margin-bottom: 30px;
+  }
+  #projects .all-projects {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  #projects .project-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80%;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+  }
+  #projects .project-info {
+    padding: 20px;
+    flex-basis: 50%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    background-image: linear-gradient(60deg, #9b416e 0%, #5a0f3d 100%);
+    color: white;
+  }
+  #projects .project-info h1 {
+    font-size: 4rem;
+    font-weight: 300;
+  }
+  
+  #projects .project-img {
+    flex-basis: 50%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+  #projects .project-img:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 25%;
+    width: 25%;
+  }
+  #projects .project-img img {
+    transition: 0.5s ease transform;
+  }
+  #projects .project-item:hover .project-img img {
+    transform: scale(1.3);
+  }
+  /* End Projects section */
+  @media only screen and (min-width: 1100px) {
+    /* Project */
+  
+    #projects .project-item {
+      flex-direction: row;
+    }
+    #projects .project-item:nth-child(even) {
+      flex-direction: row-reverse;
+    }
+    #projects .project-item {
+      height: 400px;
+      margin: 0;
+      width: 100%;
+      border-radius: 0;
+    }
+    #projects .all-projects .project-info {
+      height: 100%;
+    }
+    #projects .all-projects .project-img {
+      height: 100%;
+    }
+    /* End Project */
+  }
+  /* specials end */

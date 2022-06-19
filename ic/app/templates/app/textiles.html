@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <title>Instruments</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="{% static 'app/css/style1.css'%}">
+  <style>
+    
+    .navbar {
+      margin-bottom: 0;
+      border-radius: 0;
+    }
+    
+  
+    footer {
+      background-color: #f2f2f2;
+      padding: 25px;
+    }
+    
+  .carousel-inner img {
+      width: 100%; 
+      margin: auto;
+      min-height:200px;
+  }
+
+
+  @media (max-width: 600px) {
+    .carousel-caption {
+      display: none; 
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">HOME</a>
+      </div>
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">ABOUT</a>
+      </div>
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">MENU</a>
+      </div>
+      
+    </div>
+  </div>
+  
+
+
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+    <ol class="carousel-indicators">
+      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarousel" data-slide-to="1"></li>
+    </ol>
+
+    <div class="carousel-inner" role="listbox">
+      <div class="item active">
+        <img src="{% static  'app/images/fort/2d.jpeg' %}" alt="Image">
+        <div class="carousel-caption">
+         
+        </div>      
+      </div>
+
+      <div class="item">
+        <img src="{% static  'app/images/fort/2f.jpg' %}" alt="Image">
+        <div class="carousel-caption">
+        
+        </div>      
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+</div>
+  
+<div class="container text-center">    
+  <h1>Types Of Textiles</h1><br>
+   
+  <h5>Textiles and Fabrics of India is an attempt to showcase and celebrate the long and diverse tradition of Textiles in India. The history of this craft goes back to the ancient period. This section highlights and honours the craftsmanship of the Indian handloom workers, embroiderers, block printers, painters and others who have immensely contributed to build a distinct textile industry for India.
+    
+    </h5>
+
+
+
+<div class="w5-row-padding">
+
+
+  <div class="w3-row-padding">
+    <h2>Weaving</h2>
+  
+    {% for w in weav %}
+    <a href="{% url 'ti-detail' w.id %}">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding"> </div>
+        <img src="{{w.image.url}}" alt="House" style="width:100%">
+      </div>
+      <p><b>{{w.title}} </b></p>
+      <p> {{w.description|truncatechars:80}}</p>
+    </div>
+    </a>
+    {% endfor %}
+  </div>
+
+  </div>
+
+
+
+  <div class="w5-row-padding">
+
+
+    <div class="w3-row-padding">
+      <h2> Printing</h2>
+    
+      {% for p in print %}
+      <a href="{% url 'ti-detail' p.id %}">
+      <div class="w3-col l3 m6 w3-margin-bottom">
+        <div class="w3-display-container">
+          <div class="w3-display-topleft w3-black w3-padding"></div>
+          <img src="{{p.image.url}}" alt="House" style="width:100%">
+        </div>
+        <p><b>{{p.title}} </b></p>
+        <p> {{p.description|truncatechars:80}}</p>
+      </div>
+      </a>
+      {% endfor %}
+    </div>
+  
+    </div>
+
+
+    <div class="w5-row-padding">
+
+
+      <div class="w3-row-padding">
+        <h2>Embroidery</h2>
+      
+        {% for e in embd %}
+        <a href="{% url 'mi-detail' e.id %}">
+        <div class="w3-col l3 m6 w3-margin-bottom">
+          <div class="w3-display-container">
+            <div class="w3-display-topleft w3-black w3-padding"> </div>
+            <img src="{{e.image.url}}" alt="House" style="width:100%">
+          </div>
+          <p><b>{{e.title}} </b></p>
+          <p> {{e.description|truncatechars:80}}</p>
+        </div>
+        </a>
+        {% endfor %}
+      </div>
+    
+      </div>
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+  
+
+
+
+
+
+</div><br>
+
+<footer class="container-fluid text-center">
+  <p></p>
+</footer>
+
+</body>
+</html>

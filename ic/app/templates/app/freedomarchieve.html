@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+<title>Freedom Archive</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{% static 'app/css/style1.css'%}">
+</head>
+<body>
+
+
+
+  <div class="w3-top">
+    <div class="w3-row w3-padding w3-black">
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">HOME</a>
+      </div>
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">ABOUT</a>
+      </div>
+      <div class="w3-col s4">
+        <a href="{% url 'home' %}" class="w3-button w3-block w3-black">MENU</a>
+      </div>
+      
+    </div>
+  </div>
+
+
+
+<header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
+  <img class="w3-image" src="{% static  'app/images/fort/fr.jpg' %}" alt="Architecture" width="1500" height="800">
+  <div class="w3-display-middle w3-margin-top w3-center">
+    <h1 class="w3-xxlarge w3-text-black"><span class="w3-padding w3-black w3-opacity-min"><b>FREEDOM</b></span> <span class="w4-hide-small w5-text-dark-grey">Archive</span></h1>
+  </div>
+</header>
+
+
+ <div class="w3-container w3-padding-32" id="about">
+  <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">About</h3>
+  <p>This section contains a collection of rare archival material such as books, photographs, gazetteers, letters, newspaper clippings and much more on the freedom struggle of India. The freedom movement engulfed the entire country and people from all walks of life joined hands to drive the foreign oppressors out of this land. Even after more than 7 decades of freedom, these stories of courage, selflessness and determination continue to inspire and instill pride in us. The present section aims to preserve and bring to light rare glimpses of the fight for freedom in the form of digital records.
+  </p>
+</div>
+
+
+
+
+
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+ 
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16"> </h3>
+  </div>
+
+  <div class="w3-row-padding">
+    <h2>Rare Books</h2>
+
+
+    {% for r in rb %}
+    <a href="{% url 'fr-detail' r.id %}">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Rare Books </div>
+        <img src="{{r.fr_image.url}}" alt="House" style="width:100%">
+      </div>
+      <p><b>{{r.title}}</b></p>
+      <p> {{r.description|truncatechars:80}}</p>
+    </div>
+    </a>
+    {% endfor %}
+  </div>
+
+
+</div>
+
+<div class="w3-row-padding">
+  <h2>Images</h2>
+
+
+  {% for i in images %}
+  <a href="{% url 'fr-detail' i.id %}">
+  <div class="w3-col l3 m6 w3-margin-bottom">
+    <div class="w3-display-container">
+      <div class="w3-display-topleft w3-black w3-padding">Rare Images </div>
+      <img src="{{i.fr_image.url}}" alt="House" style="width:100%">
+    </div>
+    <p><b>{{i.title}}</b></p>
+    <p> {{i.description|truncatechars:80}}</p>
+  </div>
+  </a>
+  {% endfor %}
+</div>
+
+
+
+
+ 
+  <div class="w3-row-padding w3-grayscale">
+    <h3>Newspaper Clippings</h3>
+
+    {% for c in clip%}
+    <a href="{% url 'fr-detail' c.id %}">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <img src="{{c.fr_image.url}}" alt="John" style="width:100%">
+      <p class="w3-opacity">{{c.title}}</p>
+      <p> {{i.description|truncatechars:80}} </p>
+  
+    </div>
+  </a>
+  {% endfor %}
+  
+  </div>
+
+
+</div>
+
+
+
+
+</body>
+</html>
